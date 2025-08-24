@@ -3,6 +3,9 @@ The Airbnb Clone Project is a comprehensive, real-world application designed to 
 
 # Team Roles
 Backend Developer: Responsible for implementing API endpoints, database schemas, and business logic.
+Database Administrator: Manages database design, indexing, and optimizations.
+DevOps Engineer: Handles deployment, monitoring, and scaling of the backend services.
+QA Engineer: Ensures the backend functionalities are thoroughly tested and meet quality standards.
 
 # Technology Stack
 Django: A high-level Python web framework used for building the RESTful API.
@@ -15,6 +18,25 @@ Docker: A Containerization tool for consistent development and deployment enviro
 CI/CD Pipelines: Automated pipelines for testing and deploying code changes.
 
 # Database Design
+Entities & Fields:
+
+Users
+id, name, email, password_hash, role
+Properties
+id, title, location, description, host_id (FK)
+Bookings
+id, user_id (FK), property_id (FK), check_in, check_out, status
+Reviews
+id, user_id (FK), property_id (FK), rating, comment
+Payments
+id, booking_id (FK), amount, payment_method, status
+Relationships:
+
+A User can host multiple Properties.
+A Property can have many Bookings and Reviews.
+A Booking is linked to one Property and one User.
+A Payment is tied to one Booking.
+
 # Feature Breakdown
 1. API Documentation
 OpenAPI Standard: The backend APIs are documented using the OpenAPI standard to ensure clarity and ease of integration.
@@ -38,5 +60,18 @@ Features: Post and manage reviews for properties.
 7. Database Optimizations
 Indexing: Implement indexes for fast retrieval of frequently accessed data.
 Caching: Use caching strategies to reduce database load and improve performance.
+
 # API Security
+Authentication: Token-based (e.g., JWT) for secured login and protected routes.
+Authorization: Role-based access for host, guest, and admin permissions.
+Rate Limiting: Prevent abuse of public-facing endpoints.
+Data Encryption: Protect sensitive user data and credentials.
+
 # CI/CD Pipeline
+Continuous Integration (CI): Automatically test, lint, and build the application upon pull requests.
+Continuous Deployment (CD): Automatically deploy to a testing or production environment.
+Tools:
+GitHub Actions for running workflows.
+Docker for containerization and portability.
+(Optional) AWS/GCP/Heroku for hosting.
+
