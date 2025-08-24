@@ -20,22 +20,22 @@ The Airbnb Clone Project is a comprehensive, real-world application designed to 
 # Database Design
 Entities & Fields:
 
-Users
+1) Users
 id, name, email, password_hash, role
-Properties
+2) Properties
 id, title, location, description, host_id (FK)
-Bookings
+3) Bookings
 id, user_id (FK), property_id (FK), check_in, check_out, status
-Reviews
+4) Reviews
 id, user_id (FK), property_id (FK), rating, comment
-Payments
+5) Payments
 id, booking_id (FK), amount, payment_method, status
-Relationships:
 
-A User can host multiple Properties.
-A Property can have many Bookings and Reviews.
-A Booking is linked to one Property and one User.
-A Payment is tied to one Booking.
+Relationships:
+- A User can host multiple Properties.
+- A Property can have many Bookings and Reviews.
+- A Booking is linked to one Property and one User.
+- A Payment is tied to one Booking.
 
 # Feature Breakdown
 1. API Documentation
@@ -62,16 +62,17 @@ Indexing: Implement indexes for fast retrieval of frequently accessed data.
 Caching: Use caching strategies to reduce database load and improve performance.
 
 # API Security
-Authentication: Token-based (e.g., JWT) for secured login and protected routes.
-Authorization: Role-based access for host, guest, and admin permissions.
-Rate Limiting: Prevent abuse of public-facing endpoints.
-Data Encryption: Protect sensitive user data and credentials.
+1) Authentication: Token-based (e.g., JWT) for secured login and protected routes.
+2) Authorization: Role-based access for host, guest, and admin permissions.
+3) Rate Limiting: Prevent abuse of public-facing endpoints.
+4) Data Encryption: Protect sensitive user data and credentials.
 
 # CI/CD Pipeline
-Continuous Integration (CI): Automatically test, lint, and build the application upon pull requests.
-Continuous Deployment (CD): Automatically deploy to a testing or production environment.
+1) Continuous Integration (CI): Automatically test, lint, and build the application upon pull requests.
+2) Continuous Deployment (CD): Automatically deploy to a testing or production environment.
+   
 Tools:
-GitHub Actions for running workflows.
-Docker for containerization and portability.
-(Optional) AWS/GCP/Heroku for hosting.
+1. GitHub Actions for running workflows.
+2. Docker for containerization and portability.
+3. (Optional) AWS/GCP/Heroku for hosting.
 
